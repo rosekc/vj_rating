@@ -19,6 +19,7 @@ def create_app(test_config=None):
         SQLALCHEMY_DATABASE_URI='sqlite:///' +
         os.path.join(app.instance_path, 'dev.sqlite'),
         SQLALCHEMY_TRACK_MODIFICATIONS=True,
+        FREEZER_DESTINATION=os.path.join(app.instance_path, 'bulid')
     )
 
     if test_config is None:
