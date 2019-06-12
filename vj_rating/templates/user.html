@@ -29,37 +29,39 @@
     <div class="col-md-8">
         <div class="main_bg card">
             <h2>Contests</h2>
-            <table class="table table-responsive">
-                <thead>
-                    <tr>
-                        <th>Contest Name</th>
-                        <th>Start Time</th>
-                        <th>Rank</th>
-                        <th>Rating</th>
-                        <th>Δ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for c in reversed(user.as_contestants) %}
-                    <tr>
-                        <td><a href="{{ url_for('main.contest_details', contest_id=c.contest.id) }}#user.{{- user.id }}">{{ c.contest.name }}</a></td>
-                        <td>{{ moment(c.contest.start_time).format('LLL') }}</td>
-                        <td>{{ c.rank }}</td>
-                        <td>{{ c.before_rating }}→{{ c.after_rating }}</td>
-                        {% if c.before_rating is none %} <td>-</td>
-                        {% else %}
-                        {% if c.before_rating > c.after_rating %}<td style="color: red">
-                            {% elif c.before_rating < c.after_rating -%}
-                        <td style="color: green">+
-                            {%- else %}
-                        <td>
-                            {%- endif %}
-                            {{- c.after_rating - c.before_rating }}</td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Contest Name</th>
+                            <th>Start Time</th>
+                            <th>Rank</th>
+                            <th>Rating</th>
+                            <th>Δ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in reversed(user.as_contestants) %}
+                        <tr>
+                            <td><a href="{{ url_for('main.contest_details', contest_id=c.contest.id) }}#user.{{- user.id }}">{{ c.contest.name }}</a></td>
+                            <td>{{ moment(c.contest.start_time).format('LLL') }}</td>
+                            <td>{{ c.rank }}</td>
+                            <td>{{ c.before_rating }}→{{ c.after_rating }}</td>
+                            {% if c.before_rating is none %} <td>-</td>
+                            {% else %}
+                            {% if c.before_rating > c.after_rating %}<td style="color: red">
+                                {% elif c.before_rating < c.after_rating -%}
+                            <td style="color: green">+
+                                {%- else %}
+                            <td>
+                                {%- endif %}
+                                {{- c.after_rating - c.before_rating }}</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="main_bg card">
             <div id="line_chart" style="width: 100%;height:400px;"></div>
