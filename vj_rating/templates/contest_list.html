@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block page_content %}
+
+<div class="main_bg card">
+    <h1>Contest list</h1>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Contest Name</th>
+                <th>Start Time</th>
+                <th>Duration</th>
+                <th>Participant Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in contests %}
+            <tr>
+                <th>{{ c.id }}</th>
+                <td><a href="{{ url_for('main.contest_details', contest_id=c.id) }}">{{ c.name }}</a></td>
+                <td>{{ moment(c.start_time).format('LLL') }}</td>
+                <td>{{ moment(c.end_time).duration_from(c.start_time) }}</td>
+                <td>{{ c.participant_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

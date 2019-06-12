@@ -1,0 +1,25 @@
+{% extends "base.html" %} 
+{% block page_content %}
+
+<div class="main_bg card">
+    <h1>Rank list</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+            <tr>
+                <th>{{ u.rank }}</th>
+                <td><a href="{{ url_for('main.user_details', user_id=u.id)}}">{{ u.name }}</a></td>
+                <td>{{ u.rating }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

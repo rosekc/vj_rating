@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<div class="main_bg card">
+    <h1>{{ contest.name }}</h1>
+    <p>
+        Start time: {{ moment(contest.start_time).format('LLL') }} <br>
+        End time: {{ moment(contest.end_time).format('LLL') }} <br>
+        Duration: {{ moment(contest.end_time).duration_from(contest.start_time) }} <br>
+        Participant count : {{ contest.participant_count }} <br>
+        <a href="https://vjudge.net/contest/{{- contest.id }}">Source</a>
+    </p>
+
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Solved</th>
+                <th>Penalty</th>
+                <th>Rating</th>
+                <th>Δ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in contestants %}
+            <tr>
+                <th>{{ c.rank }}</th>
+                <td id="user.{{ c.user.id }}"><a href="{{ url_for('main.user_details', user_id=c.user.id) }}">{{ c.user.name }}</a></td>
+                <td>{{ c.solved }}</td>
+                <td>{{ c.penalty }}</td>
+                <td>{{ c.before_rating }}→{{ c.after_rating }}</td>
+            {% if c.before_rating is none %} <td>-</td>
+            {% else %}
+            {% if c.before_rating > c.after_rating %}<td style="color: red">
+                {% elif c.before_rating < c.after_rating -%}
+            <td style="color: green">+
+                {%- else %}
+            <td>
+                {%- endif %}
+                {{- c.after_rating - c.before_rating }}</td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
