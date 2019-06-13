@@ -16,7 +16,7 @@
 pip install pipenv
 ```
 
-下载源码（clone 或者[直接下载](https://github.com/rosekc/vj_rating/archive/dev.zip)）以后，在命令行输入以下命令，安装环境依赖。
+下载源码（clone 或者[直接下载](https://github.com/rosekc/vj_rating/archive/dev.zip)后解压）以后，在**项目根目录**下用命令行输入以下命令，安装环境依赖。
 
 ```sh
 pipenv install
@@ -34,11 +34,15 @@ pipenv shell
 flaks init
 ```
 
-默认情况下将会生成 `instance` 目录。
+默认情况下将会在在项目根目录下生成 `instance` 目录。
 
 接下来试试添加比赛记录。
 
-打开任意比赛，`f12` 进入开发者环境，复制整个 html ，拷贝到 `instance/rank` 目录下，以 `数字.html` 命名，如 `1.html`，这个数字决定了比赛加载顺序（小的先加载）。
+打开任意比赛的**榜单页面**，`f12` 进入开发者环境，复制整个 html。
+
+![copy_html](docs/img/copy_html.png)
+
+拷贝到 `instance/rank` 目录下，以 `数字.html` 命名，如 `1.html`，这个数字决定了比赛加载顺序（小的先加载）。
 
 接着计算结果。
 
