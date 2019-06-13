@@ -31,7 +31,7 @@ pipenv shell
 初始化目录。
 
 ```sh
-flaks init
+flask init
 ```
 
 默认情况下将会在在项目根目录下生成 `instance` 目录。
@@ -47,13 +47,13 @@ flaks init
 接着计算结果。
 
 ```sh
-flaks cal
+flask cal
 ```
 
 打开开发环境服务器。
 
 ```sh
-flaks run
+flask run
 ```
 
 默认情况下前往 [http://localhost:5000](http://localhost:5000) 即可看到结果。
@@ -63,7 +63,7 @@ flaks run
 推荐的部署方式是静态部署。
 
 ```sh
-flaks freeze
+flask freeze
 ```
 
 该命令将在 `instance/bulid` 目录下生成静态文件，这些文件可以直接部署到静态页面服务（如 github page ），也可以自行搭建服务。
