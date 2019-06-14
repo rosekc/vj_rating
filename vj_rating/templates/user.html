@@ -46,7 +46,11 @@
                             <td><a href="{{ url_for('main.contest_details', contest_id=c.contest.id) }}#user.{{- user.id }}">{{ c.contest.name }}</a></td>
                             <td>{{ moment(c.contest.start_time).format('LLL') }}</td>
                             <td>{{ c.rank }}</td>
+                            {% if c.before_rating is none %}
+                            <td>{{ c.after_rating }}</td>
+                            {% else %}
                             <td>{{ c.before_rating }}→{{ c.after_rating }}</td>
+                            {% endif %}
                             {% if c.before_rating is none %} <td>-</td>
                             {% else %}
                             {% if c.before_rating > c.after_rating %}<td style="color: red">
