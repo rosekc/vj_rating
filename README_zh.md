@@ -34,15 +34,15 @@ pipenv shell
 flask init
 ```
 
-默认情况下将会在在项目根目录下生成 `instance` 目录。
+默认情况下将会在在项目根目录下生成 `instance` 目录（参考：[instance-folders](http://flask.pocoo.org/docs/1.0/config/#instance-folders)）。
 
 接下来试试添加比赛记录。
 
-打开任意比赛的**榜单页面**，`f12` 进入开发者环境，复制整个 html。
+打开任意比赛页面，切换到**榜单页面**，`f12` 进入开发者环境，复制整个 html。
 
 ![copy_html](docs/img/copy_html.png)
 
-拷贝到 `instance/rank` 目录下，以 `数字.html` 命名，如 `1.html`，这个数字决定了比赛加载顺序（小的先加载）。
+以 `数字.html` 命名，以`utf-8` 编码保存到 `instance/rank` 目录下，如 `1.html`，这个数字决定了比赛加载顺序（小的先加载）。
 
 接着计算结果。
 
