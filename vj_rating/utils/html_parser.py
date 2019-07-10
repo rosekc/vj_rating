@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as bs
 from dateutil import parser
 
 from .. import db
-from ..models import Contest, Contestant, User
+from ..main.models import Contest, Contestant, User
 from .moment import CHINA_STANDART_TIME_ZONE
 
 

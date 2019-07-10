@@ -19,7 +19,8 @@ def create_app(test_config=None):
         SQLALCHEMY_DATABASE_URI='sqlite:///' +
         os.path.join(app.instance_path, 'dev.sqlite'),
         SQLALCHEMY_TRACK_MODIFICATIONS=True,
-        FREEZER_DESTINATION=os.path.join(app.instance_path, 'bulid')
+        FREEZER_DESTINATION=os.path.join(app.instance_path, 'bulid'),
+        EXPLAIN_TEMPLATE_LOADING=True,
     )
 
     if test_config is None:
@@ -39,11 +40,11 @@ def create_app(test_config=None):
     from .main import bp as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    from .models import User, Contest, Contestant
+    from .main.models import User, Contest, Contestant
     @app.shell_context_processor
     def make_shell_context():
         return dict(db=db, User=User, Contest=Contest, Contestant=Contestant)
-    
+
     @app.cli.command()
     def init():
         rank_path = os.path.join(app.instance_path, 'rank')

@@ -3,8 +3,8 @@ from datetime import datetime
 
 from sqlalchemy.ext.associationproxy import association_proxy
 
-from . import db
-from .utils.rating_calculator import CodeforcesCalculator
+from .. import db
+from ..utils.rating_calculator import CodeforcesCalculator
 
 
 class Contestant(db.Model):
@@ -24,7 +24,7 @@ class Contestant(db.Model):
     def as_dict(self):
         return {
             'name': self.contest.name,
-            'time': self.contest.start_time.strftime('%Y-%m-%dT%H:%M:%S')  + 'Z',
+            'time': self.contest.start_time.strftime('%Y-%m-%dT%H:%M:%S') + 'Z',
             'rating': self.after_rating
         }
 
