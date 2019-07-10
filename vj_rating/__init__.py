@@ -36,7 +36,7 @@ def create_app(test_config=None):
     db.init_app(app)
     freezer = Freezer(app)
 
-    from .main import main as main_blueprint
+    from .main import bp as main_blueprint
     app.register_blueprint(main_blueprint)
 
     from .models import User, Contest, Contestant
