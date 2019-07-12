@@ -8,6 +8,7 @@ Includes:
 
 - A rating calculator library based on Codeforces rating system.
 - A web interface for showing rating result.
+- A simple blog system.
 
 ![user_page](docs/img/user_page.png)
 ![rank_list_page](docs/img/rank_list_page.png)

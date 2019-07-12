@@ -4,6 +4,7 @@
 
 - 一个基于 Codeforces 分数系统的比赛分数计算库。
 - 一个展示分数的网站。
+- 一个简单的博客系统。
 
 ![user_page](docs/img/user_page.png)
 ![rank_list_page](docs/img/rank_list_page.png)
@@ -57,6 +58,36 @@ flask run
 ```
 
 默认情况下前往 [http://localhost:5000](http://localhost:5000) 即可看到结果。
+
+## 博客系统
+
+在根目录下
+
+```sh
+flask create-post
+```
+
+这个命令会在 `instance/blog` 目录下创建一个新的博文。
+
+```md
+---
+title: New Blog
+create_time: 2019-07-12 14:48
+author: Noname
+---
+```
+
+首几行为这篇博文的配置，可以按照格式更改。
+
+下面可以编写你的博文了。
+
+写完以后
+
+```sh
+flask update-post
+```
+
+即可将博文保存进数据库，这时博文就可以在页面中显示了。
 
 ## 部署
 
