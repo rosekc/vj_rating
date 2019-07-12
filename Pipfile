@@ -11,6 +11,8 @@ frozen-flask = "*"
 pytz = "*"
 python-dotenv = "*"
 python-dateutil = "*"
+markdown = "*"
+pygments = "*"
 
 [dev-packages]
 pylint = "*"

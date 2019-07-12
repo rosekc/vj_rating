@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link href="{{ url_for('static', filename='css/md.css') }}" , rel="stylesheet" />
+<link href="{{ url_for('static', filename='css/code_style.css') }}" , rel="stylesheet" />
+{% endblock %}

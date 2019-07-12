@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block page_content %}
+
+{% for p in posts %}
+<div class="main_bg card">
+    <h1><a href="{{ url_for('blog.get_post', post_id=p.id) }}">{{ p.title }}</a></h1>
+    <p>{{ moment(p.create_time).format('LLL') }} | By {{ p.author }}</p>
+    <article class="markdown-body">
+        {{ p.truncated_html_content|safe }}
+        {% if p.need_truncate %}
+        <a href="{{ url_for('blog.get_post', post_id=p.id) }}">Read more</a>
+        {% endif %}
+    </article>
+</div>
+{% endfor %}
+
+{% endblock %}

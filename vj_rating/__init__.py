@@ -100,4 +100,7 @@ def create_app(test_config=None):
     def freeze():
         freezer.freeze()
 
+    from .blog import Blog
+    blog = Blog(app)
+
     return app
