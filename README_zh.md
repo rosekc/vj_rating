@@ -9,6 +9,10 @@
 ![user_page](docs/img/user_page.png)
 ![rank_list_page](docs/img/rank_list_page.png)
 
+现在网站部署在：
+
+<https://henuacm.github.io>
+
 ## 快速开始
 
 在开始之前，你需要安装 python 3 （推荐3.6+），并安装好环境管理库 `pipenv`。

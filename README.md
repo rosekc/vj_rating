@@ -13,6 +13,10 @@ Includes:
 ![user_page](docs/img/user_page.png)
 ![rank_list_page](docs/img/rank_list_page.png)
 
+Now the static website is deployed at:
+
+<https://henuacm.github.io>
+
 ## Usage
 
 WIP
