@@ -40,11 +40,15 @@ class User(db.Model):
     rank = db.Column(db.Integer, default=None)
     rating = db.Column(db.Integer, default=None)
     as_contestants = db.relationship(
-        'Contestant', back_populates='user', order_by=Contestant.contest_id)
+        'Contestant', back_populates='user')
     contests = association_proxy('as_contestants', 'contest')
 
+    @property
+    def sorted_contestants(self):
+        return sorted(self.as_contestants, key=lambda x: x.contest.start_time)
+
     def gen_contest_list(self):
-        return json.dumps(list(map(lambda x: x.as_dict(), self.as_contestants)))
+        return json.dumps(list(map(lambda x: x.as_dict(), self.sorted_contestants)))
 
 
 class Contest(db.Model):

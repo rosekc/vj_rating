@@ -75,12 +75,19 @@ def create_app(test_config=None):
         li = os.listdir(base_dir)
 
         li = [i for i in li if i.endswith('.html')]
-        li.sort(key=lambda x: int(x.split('.')[0]))
+
         for i in li:
             print('processing {}'.format(i))
             load_rank(os.path.join(base_dir, i))
+
         # reassign rank
         from sqlalchemy import desc
+        
+        contests = Contest.query.order_by(desc(Contest.start_time)).all()
+
+        (c.calculate_rating() for c in contests)
+        db.session.add_all(contests)
+
         users = User.query.order_by(desc(User.rating)).all()
         cur_rank = 1
         cnt = 1

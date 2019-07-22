@@ -15,7 +15,7 @@ def rank_list():
 
 @bp.route('/contest_list/')
 def contest_list():
-    contests = Contest.query.all()
+    contests = Contest.query.order_by(Contest.start_time).all()
     return render_template('main/contest_list.html', contests=reversed(contests))
 
 @bp.route('/user/<int:user_id>/')

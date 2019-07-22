@@ -47,13 +47,15 @@ flask init
 
 ![copy_html](docs/img/copy_html.png)
 
-以 `数字.html` 命名，以`utf-8` 编码保存到 `instance/rank` 目录下，如 `1.html`，这个数字决定了比赛加载顺序（小的先加载）。
+以 `数字.html` 命名，以`utf-8` 编码保存到 `instance/rank` 目录下，如 `1.html`。
 
 接着计算结果。
 
 ```sh
 flask cal
 ```
+
+比赛加载顺序由**比赛开始的时间**决定，由前往后依次计算。
 
 打开开发环境服务器。
 

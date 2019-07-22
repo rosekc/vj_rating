@@ -41,7 +41,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for c in reversed(user.as_contestants) %}
+                        {% for c in reversed(user.sorted_contestants) %}
                         <tr>
                             <td><a href="{{ url_for('main.contest_details', contest_id=c.contest.id) }}#user.{{- user.id }}">{{ c.contest.name }}</a></td>
                             <td>{{ moment(c.contest.start_time).format('LLL') }}</td>
